@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <title>António Imageboard</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+    <!-- <div id="cunt">
+        <h1>wer das liest, ist doof</h1>
+    </div> -->
+    <main>
+        <div id="table">
+
+
+                <div id="imageTable" v-if="images.length > 0">
+                    <form>
+                        <div class="yellowSquare">
+
+                        </div>
+                        <div class="inputs">
+                            <h1>ImgS</h1>
+
+                        <img v-bind:src="imgFile" alt="" >
+                        <input v-model="imgFormInfo.title" type="text" placeholder="Title">
+                        <input v-model="imgFormInfo.description" type="text" placeholder="Description">
+                        <input v-model="imgFormInfo.username" type="text" placeholder="Username">
+                        <input v-on:change="selectFile" type="file" ref="fileInput">
+
+                        <button class="uploadButton" v-on:click="uploadImage">UPLOAD</button>
+                    </div>
+                    </form>
+                    <div class="eachResult" v-for="image in images">
+
+                        <!-- <div class="imgTextOverlay"> -->
+
+                            <a v-bind:href="'#' + image.id">
+                                <img
+                                class="eachImage"
+                                v-bind:src="image.url"
+                                v-on:click="getId(image.id)"
+                                v-bind:id="image.id">
+
+                                <div class="resultText">
+                                </br>
+                                </br>
+                                    <p class="imageTitle">{{image.title}}</p>
+                                    <p class="imageDescription">{{image.description}}</p>
+                                    <p class="imageUserName">{{image.username}}</p>
+                                </div>
+                            </a>
+                        <!-- </div> -->
+                    </div>
+
+                    <div class="moreButtonDiv">
+                        <button id="moreButton" v-on:click="moreImagesPlease">MORE</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <image-modal v-if="currentImageId" v-bind:id="currentImageId" v-on:close="closeModal"></image-modal>
+
+    </main>
+
+    <script id="image-modal-template" type="text/x-template">
+        <div id="modalContainerDiv">
+
+
+
+           <div id="modalContainer">
+
+
+               <button id="close" v-on:click="closeMe">X</button>
+
+
+                   <img v-bind:src="image.url">
+
+               <p class="modalText">TITLE: {{image.title}}</p>
+               <p class="modalText">DESCRIPTION: {{image.description}}</p>
+               <p class="modalText">PICTURE BY: {{image.username}}</p>
+               <p class="modalText">UPLOADED ON: {{image.created_at}}</p>
+
+
+               <div id="modalComment">
+                   <input v-model="commentInfo.username" type="text" placeholder="Username"></br>
+                   <input v-model="commentInfo.comment" type="text" placeholder="Say something">
+                   <button class="commentButton" v-on:click="commentImage">Comment</button>
+
+
+               <div id="commentTable" v-if="comments.length > 0">
+                    <div class="comment" v-for="comment in comments">
+
+                        <p>USER: {{comment.username}}  -  ({{comment.created_at}})</p>
+                        <p>SAYS: "{{comment.comment}}"</p>
+
+                    </div>
+                </div>
+            </div>
+
+           </div>
+
+       </div>
+   </script>
+
+
+
+
+
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
