@@ -46,11 +46,7 @@ app.get("/images", (req, res) => {
 });
 
 app.get("/images/:morepictures", (req, res) => {
-    console.log("more pictures in post server");
-
     db.morePicturesBitte(req.params.morepictures).then(results => {
-        console.log("more pictures after query, results: ", results);
-
         res.json({
             images: results.rows
         });
@@ -58,25 +54,16 @@ app.get("/images/:morepictures", (req, res) => {
 });
 
 app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
-    console.log("the image was uploaded into our folder");
-    console.log(req.body);
-    console.log(req.file.filename, req.body.title);
-
     db
         .saveImage(
-            //make the query in the db file it needs ,
-            // the image needs to be exactly like the others in return
             config.s3Url + req.file.filename,
             req.body.username,
             req.body.title,
             req.body.description,
             req.body.id
-            //CHECK ORDER in db
         )
         .then(function(results) {
-            console.log("what comes from saveimage:", results);
             res.json({
-                // url: config.s3Url + req.file.filename,| to write less code
                 img: config.s3Url + req.file.filename,
                 username: req.body.username,
                 title: req.body.title,
@@ -89,8 +76,6 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
             res.sendStatus(500);
         });
 });
-
-//-----------------
 
 app.get("/image/:id", function(req, res) {
     Promise.all([
@@ -110,24 +95,10 @@ app.post("/comments", function(req, res) {
         .uploadComments(req.body.username, req.body.comment, req.body.image_id)
         .then(function(results) {
             res.json(results.rows[0]);
-            console.log("Entire response Body: ", req.body);
         })
         .catch(function(err) {
-            console.log("post rout error in index.js: ", err);
+            console.log("post route error in index.js: ", err);
         });
 });
-
-//
-// app.get("/comments/:id", function(req, res) {
-//     db
-//         .getComments(req.params.id)
-//         .then(function(result) {
-//             console.log("RESULTS:", result);
-//             res.json(result.rows);
-//         })
-//         .catch(function(err) {
-//             console.log(err);
-//         });
-// });
 
 app.listen(8080, () => console.log("Im listening"));

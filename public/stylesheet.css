@@ -4,8 +4,6 @@
 }
 body {
     background: url("concrete-texture.jpg");
-    /* background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%); */
-    /* background-color: rgba(255, 0, 0, 0.5); */
     width: 100%;
     overflow-x: hidden;
 }
@@ -88,24 +86,16 @@ input {
 }
 
 .eachResult {
-    /* border: 2px solid #51798a; */
     height: 300px;
     width: 300px;
     overflow: hidden;
-
-    /* margin: 10px; */
 }
 
 .eachImage {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    /* z-index: 99; */
 }
-
-/* .eachImage:hover {
-    opacity: 0.5;
-} */
 
 .resultText {
     position: relative;
@@ -115,7 +105,6 @@ input {
     height: 300px;
     z-index: 99;
     display: none;
-    /* border: 2px red solid; */
     bottom: 305px;
     color: white;
     font-size: 20px;
@@ -158,7 +147,6 @@ a {
     position: relative;
 
     margin: 0 1fr;
-    /* width: 100%; */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -179,7 +167,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
 }
 
 #commentTable {
@@ -252,9 +239,6 @@ a {
     background-color: yellow;
     border-bottom: 1px solid grey;
 }
-/* .currentImageId {
-    display: block;
-} */
 
 @media screen and (min-width: 900px) and (max-width: 1199px) {
     #imageTable,
@@ -305,14 +289,4 @@ a {
         font-size: 20px;
         font-weight: bold;
     }
-    /* #modalContainer button,
-    #modalContainer p,
-    #modalContainer input {
-        bottom: 150px;
-    } */
-
-    /* #modalPicture,
-    img {
-        bottom: 150px;
-    } */
 }

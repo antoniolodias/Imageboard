@@ -7,7 +7,3 @@ CREATE TABLE comments(
     image_id INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
- -- createdb DataBaseName
- -- DONT FORGET psql -d imageboard -f sql/comments.sql
- -- INSIDE THE DATABASE psql -d imageboard

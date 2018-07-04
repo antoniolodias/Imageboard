@@ -32,27 +32,11 @@ exports.saveImage = function(url, username, title, description) {
         [url, username || null, title || null, description || null]
     );
 };
-//----
+
 exports.getImageById = function(id) {
     return db.query(`SELECT * FROM images WHERE id = $1`, [id]);
 };
 
-// exports.getImageById = function(id) {
-//     return db.query(
-//         `SELECT id, image, title, username, description,
-//             (SELECT id
-//                 FROM images
-//                 WHERE id < $1
-//                 ORDER BY id DESC LIMIT 1
-//             ) as prev_id, (
-//                 SELECT id FROM images WHERE id > $1 ORDER BY id ASC LIMIT 1
-//             ) as next_id
-//             FROM images
-//             WHERE id = $1;`,
-//         [id]
-//     );
-// };
-// button needs to know his # and then when clicked location.hash next update url
 
 exports.getCommentsById = function(id) {
     return db.query(`SELECT * FROM comments WHERE image_id = $1`, [id]);

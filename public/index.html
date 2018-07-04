@@ -5,12 +5,9 @@
     <link rel="stylesheet" href="/stylesheet.css">
 </head>
 <body>
-    <!-- <div id="cunt">
-        <h1>wer das liest, ist doof</h1>
-    </div> -->
+
     <main>
         <div id="table">
-
 
                 <div id="imageTable" v-if="images.length > 0">
                     <form>
@@ -31,8 +28,6 @@
                     </form>
                     <div class="eachResult" v-for="image in images">
 
-                        <!-- <div class="imgTextOverlay"> -->
-
                             <a v-bind:href="'#' + image.id">
                                 <img
                                 class="eachImage"
@@ -48,7 +43,6 @@
                                     <p class="imageUserName">{{image.username}}</p>
                                 </div>
                             </a>
-                        <!-- </div> -->
                     </div>
 
                     <div class="moreButtonDiv">
@@ -102,11 +96,6 @@
 
        </div>
    </script>
-
-
-
-
-
 
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
