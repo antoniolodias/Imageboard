@@ -1,3 +1,7 @@
-"# ImageBoard" 
-"# Imageboard" 
-"# Imageboard" 
+# Image Board
+Public image board.
+
+## Preview
+(It might take a minute to load)
+
+![alt text](https://pli.io/dA5kY.gif)
