@@ -1,10 +1,10 @@
 # Image Board
 Public image board.
 
-##Features
-Display of all uploaded images | Image upload | Image modals with comment function
+## Features
+Image upload, Display uploaded images, Image modals with comment function
 
-##Technologies
+## Technologies
 Javascript, Vue.js, Node.js, Express.js, PostgreSQL, HTML, CSS.
 
 ## Preview
