@@ -10,4 +10,4 @@ Javascript, Vue.js, Node.js, Express.js, PostgreSQL, HTML, CSS.
 ## Preview
 (It might take a minute to load)
 
-![alt text](https://pli.io/YZ3IW.gif)
+![alt text](https://pli.io/YZSfq.gif)
